@@ -55,7 +55,7 @@ export const EventCard = ({ event }: EventCardProps) => {
   };
 
   return (
-    <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+    <Card className="group hover:shadow-neon-pink transition-all duration-300 hover:-translate-y-1 overflow-hidden border-primary/20 hover:border-primary/40">
       <CardHeader className="space-y-3">
         <div className="flex items-start justify-between gap-2">
           <div className="flex-1 min-w-0">
@@ -135,7 +135,7 @@ export const EventCard = ({ event }: EventCardProps) => {
 
       <CardFooter className="flex gap-2 pt-0">
         <Button
-          variant="outline"
+          variant="neonOutline"
           size="sm"
           className="flex-1"
           onClick={handleBookmark}
@@ -144,7 +144,7 @@ export const EventCard = ({ event }: EventCardProps) => {
           Save
         </Button>
         <Button
-          variant="outline"
+          variant="default"
           size="sm"
           className="flex-1"
           onClick={handleAddToCalendar}
@@ -153,8 +153,9 @@ export const EventCard = ({ event }: EventCardProps) => {
           Add
         </Button>
         <Button
-          variant="outline"
+          variant="ghost"
           size="sm"
+          className="hover-glow-purple"
           onClick={handleShare}
         >
           <Share2 className="h-4 w-4" />

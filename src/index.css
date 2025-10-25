@@ -8,32 +8,33 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 98%;
-    --foreground: 222 47% 11%;
+    /* Dark theme by default - HackMyWay branding */
+    --background: 0 0% 7%;
+    --foreground: 0 0% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 98%;
 
-    /* Deep blue primary for branding & online events */
-    --primary: 221 83% 53%;
+    /* Neon pink primary for CTAs and highlights */
+    --primary: 340 82% 52%;
     --primary-foreground: 0 0% 100%;
     
-    /* Vibrant orange for CTAs */
-    --secondary: 25 95% 53%;
+    /* Neon purple secondary for accents */
+    --secondary: 291 64% 42%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 210 40% 96%;
-    --muted-foreground: 215 16% 47%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
 
-    --accent: 210 40% 96%;
-    --accent-foreground: 222 47% 11%;
+    --accent: 291 64% 42%;
+    --accent-foreground: 0 0% 100%;
 
-    /* Semantic mode colors */
-    --online: 221 83% 53%;
-    --offline: 142 71% 45%;
+    /* Semantic mode colors - neon theme */
+    --online: 291 64% 42%;
+    --offline: 340 82% 52%;
     --hybrid: 271 81% 56%;
 
     --success: 142 71% 45%;
@@ -41,75 +42,84 @@ All colors MUST be HSL.
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 221 83% 53%;
+    --border: 0 0% 20%;
+    --input: 0 0% 15%;
+    --ring: 340 82% 52%;
 
     --radius: 0.75rem;
 
     /* Typography hierarchy */
-    --text-heading: 222 47% 11%;
-    --text-body: 215 16% 47%;
-    --text-muted: 215 16% 65%;
+    --text-heading: 0 0% 98%;
+    --text-body: 0 0% 80%;
+    --text-muted: 0 0% 65%;
+
+    /* Neon glow effects */
+    --glow-pink: 0 0 20px hsl(340 82% 52% / 0.5);
+    --glow-purple: 0 0 20px hsl(291 64% 42% / 0.5);
+    --glow-pink-strong: 0 0 30px hsl(340 82% 52% / 0.8);
+    --glow-purple-strong: 0 0 30px hsl(291 64% 42% / 0.8);
 
     /* Card shadows */
-    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.3);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.3);
+    --shadow-neon-pink: 0 0 20px hsl(340 82% 52% / 0.3);
+    --shadow-neon-purple: 0 0 20px hsl(291 64% 42% / 0.3);
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 0 0% 7%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 340 82% 52%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 15%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 0 0% 20%;
+    --sidebar-ring: 340 82% 52%;
   }
 
   .dark {
-    --background: 222 47% 11%;
-    --foreground: 210 40% 98%;
+    /* Same as root since we're dark by default */
+    --background: 0 0% 7%;
+    --foreground: 0 0% 98%;
 
-    --card: 222 47% 15%;
-    --card-foreground: 210 40% 98%;
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 222 47% 15%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 221 83% 53%;
+    --primary: 340 82% 52%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 25 95% 53%;
+    --secondary: 291 64% 42%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 217 33% 18%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
 
-    --accent: 217 33% 18%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 291 64% 42%;
+    --accent-foreground: 0 0% 100%;
 
-    --online: 221 83% 53%;
-    --offline: 142 71% 45%;
+    --online: 291 64% 42%;
+    --offline: 340 82% 52%;
     --hybrid: 271 81% 56%;
 
     --success: 142 71% 45%;
     --warning: 38 92% 50%;
-    --destructive: 0 63% 31%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 217 33% 18%;
-    --input: 217 33% 18%;
-    --ring: 221 83% 53%;
+    --border: 0 0% 20%;
+    --input: 0 0% 15%;
+    --ring: 340 82% 52%;
 
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-background: 0 0% 7%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 340 82% 52%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 0 0% 15%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 0 0% 20%;
+    --sidebar-ring: 340 82% 52%;
   }
 }
 
@@ -120,5 +130,39 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  }
+
+  /* Neon glow utilities */
+  .glow-pink {
+    box-shadow: var(--glow-pink);
+  }
+
+  .glow-purple {
+    box-shadow: var(--glow-purple);
+  }
+
+  .glow-pink-strong {
+    box-shadow: var(--glow-pink-strong);
+  }
+
+  .glow-purple-strong {
+    box-shadow: var(--glow-purple-strong);
+  }
+
+  .hover-glow-pink {
+    transition: box-shadow 0.3s ease;
+  }
+
+  .hover-glow-pink:hover {
+    box-shadow: var(--glow-pink);
+  }
+
+  .hover-glow-purple {
+    transition: box-shadow 0.3s ease;
+  }
+
+  .hover-glow-purple:hover {
+    box-shadow: var(--glow-purple);
   }
 }

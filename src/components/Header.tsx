@@ -24,11 +24,11 @@ export const Header = ({ searchQuery, onSearchChange, onViewChange, currentView 
         <div className="flex h-16 items-center justify-between gap-4">
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-secondary">
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-secondary shadow-glow-pink">
               <Calendar className="h-6 w-6 text-primary-foreground" />
             </div>
-            <span className="hidden font-bold text-xl text-foreground sm:inline-block">
-              HackHub
+            <span className="hidden font-bold text-xl text-foreground sm:inline-block bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+              HackMyWay
             </span>
           </div>
 
@@ -75,10 +75,10 @@ export const Header = ({ searchQuery, onSearchChange, onViewChange, currentView 
 
           {/* Auth Buttons - Desktop */}
           <div className="hidden md:flex items-center gap-2">
-            <Button variant="ghost" size="sm">
+            <Button variant="ghost" size="sm" className="hover-glow-pink">
               Login
             </Button>
-            <Button size="sm" className="bg-secondary hover:bg-secondary/90">
+            <Button variant="neon" size="sm">
               Sign Up
             </Button>
           </div>
@@ -143,11 +143,11 @@ export const Header = ({ searchQuery, onSearchChange, onViewChange, currentView 
               About
             </Button>
             <div className="pt-2 border-t space-y-2">
-              <Button variant="ghost" size="sm" className="w-full">
+              <Button variant="ghost" size="sm" className="w-full hover-glow-pink">
                 <User className="h-4 w-4 mr-2" />
                 Login
               </Button>
-              <Button size="sm" className="w-full bg-secondary hover:bg-secondary/90">
+              <Button variant="neon" size="sm" className="w-full">
                 Sign Up
               </Button>
             </div>

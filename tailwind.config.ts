@@ -58,6 +58,17 @@ export default {
           ring: "hsl(var(--sidebar-ring))",
         },
       },
+      fontFamily: {
+        sans: ['Poppins', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+      },
+      boxShadow: {
+        'glow-pink': 'var(--glow-pink)',
+        'glow-purple': 'var(--glow-purple)',
+        'glow-pink-strong': 'var(--glow-pink-strong)',
+        'glow-purple-strong': 'var(--glow-purple-strong)',
+        'neon-pink': 'var(--shadow-neon-pink)',
+        'neon-purple': 'var(--shadow-neon-purple)',
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
