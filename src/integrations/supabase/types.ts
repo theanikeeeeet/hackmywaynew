@@ -14,7 +14,51 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      hackathons: {
+        Row: {
+          created_at: string
+          description: string | null
+          end_date: string
+          id: string
+          image_url: string | null
+          last_updated: string
+          location: string
+          source: string
+          start_date: string
+          theme: string[] | null
+          title: string
+          url: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          end_date: string
+          id?: string
+          image_url?: string | null
+          last_updated?: string
+          location: string
+          source: string
+          start_date: string
+          theme?: string[] | null
+          title: string
+          url: string
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          end_date?: string
+          id?: string
+          image_url?: string | null
+          last_updated?: string
+          location?: string
+          source?: string
+          start_date?: string
+          theme?: string[] | null
+          title?: string
+          url?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
