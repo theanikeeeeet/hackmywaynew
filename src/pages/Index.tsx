@@ -1,10 +1,12 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { Header } from '@/components/Header';
 import { Hero } from '@/components/Hero';
 import { FilterSidebar, Filters } from '@/components/FilterSidebar';
 import { EventGrid } from '@/components/EventGrid';
 import { CalendarView } from '@/components/CalendarView';
-import { mockEvents } from '@/data/mockEvents';
+import { useHackathons, useTriggerFetch } from '@/hooks/useHackathons';
+import { HackathonEvent } from '@/data/mockEvents';
+import { toast } from 'sonner';
 
 /**
  * Main Index Page - Hackathon Aggregator MVP
@@ -23,9 +25,64 @@ const Index = () => {
     teamSize: 'all'
   });
 
+  const { data: hackathons, isLoading, error } = useHackathons();
+  const triggerFetch = useTriggerFetch();
+
+  // Trigger initial data fetch on mount if no data exists
+  useEffect(() => {
+    const fetchInitialData = async () => {
+      if (hackathons && hackathons.length === 0) {
+        try {
+          await triggerFetch();
+          toast.success('Fetched latest hackathons from APIs');
+        } catch (err) {
+          console.error('Failed to fetch initial data:', err);
+          toast.error('Failed to fetch hackathons');
+        }
+      }
+    };
+    
+    fetchInitialData();
+  }, []);
+
+  // Convert database hackathons to app format
+  const events: HackathonEvent[] = useMemo(() => {
+    if (!hackathons) return [];
+    
+    return hackathons.map(h => {
+      // Map source to valid platform
+      const platformMap: Record<string, HackathonEvent['platform']> = {
+        'MLH': 'MLH',
+        'Devpost': 'Devpost',
+        'Unstop': 'Unstop',
+        'Devfolio': 'Devfolio',
+        'DoraHacks': 'DoraHacks',
+      };
+      
+      return {
+        id: h.id,
+        title: h.title,
+        platform: platformMap[h.source] || 'Devpost',
+        organizer: h.source,
+        start_time: h.start_date,
+        end_time: h.end_date,
+        registration_deadline: h.end_date,
+        tags: h.theme || [],
+        mode: h.location as 'Online' | 'Offline' | 'Hybrid',
+        region: h.location,
+        verified: h.source === 'MLH',
+        prize_info: null,
+        skill_level: 'Beginner',
+        team_size: '2-3',
+        registration_url: h.url,
+        supports_direct_registration: false,
+      };
+    });
+  }, [hackathons]);
+
   // Filter events based on search and filters
   const filteredEvents = useMemo(() => {
-    return mockEvents.filter(event => {
+    return events.filter(event => {
       // Search filter
       const matchesSearch = searchQuery === '' || 
         event.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -54,7 +111,11 @@ const Index = () => {
       return matchesSearch && matchesPlatform && matchesMode && 
              matchesCategory && matchesSkillLevel && matchesTeamSize;
     });
-  }, [searchQuery, filters]);
+  }, [searchQuery, filters, events]);
+
+  if (error) {
+    toast.error('Failed to load hackathons');
+  }
 
   return (
     <div className="min-h-screen bg-background">
